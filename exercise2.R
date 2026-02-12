@@ -1,0 +1,6 @@
+met = read.csv("C:/Users/lilia/OneDrive/Documents/HW2/metabolite.csv")
+sum(met$Label == "Alzheimer")
+colSums(is.na(met))
+met2 = met %>% filter(!is.na(Dopamine))
+medianc4 = met2 %>% summarize(medianc4= median(c4.OH.Pro, na.rm=TRUE))
+met2 =  met2 %>% mutate(c4.OH.Pro=ifelse(is.na(c4.OH.Pro), medianc4,c4.OH.Pro))

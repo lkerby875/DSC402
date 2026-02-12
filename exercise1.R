@@ -1,0 +1,10 @@
+df = read.csv("C:/Users/lilia/OneDrive/Documents/HW2/WorldCupMatches.csv")
+dim(df)
+summary(df)
+library(dplyr)
+head(df)
+print(length(unique(df$Stadium)))
+df %>% summarize(avgAtt = mean(Attendance, na.rm = TRUE))
+df %>%  group_by(Home.Team.Initials) %>% summarize(sum_scores = sum(Home.Team.Goals))
+df %>%  group_by(Year) %>% summarize(sum_attendance = sum(Attendance))
+
